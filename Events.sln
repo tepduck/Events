@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{66A12750-010C-4389-A6CD-FF9BC6F46520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{0582C95F-B9F6-46DE-8714-51FE62C3855E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{AAE32AE9-038A-4535-9563-02F17967EBB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66A12750-010C-4389-A6CD-FF9BC6F46520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A12750-010C-4389-A6CD-FF9BC6F46520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A12750-010C-4389-A6CD-FF9BC6F46520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A12750-010C-4389-A6CD-FF9BC6F46520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0582C95F-B9F6-46DE-8714-51FE62C3855E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0582C95F-B9F6-46DE-8714-51FE62C3855E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0582C95F-B9F6-46DE-8714-51FE62C3855E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0582C95F-B9F6-46DE-8714-51FE62C3855E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE32AE9-038A-4535-9563-02F17967EBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE32AE9-038A-4535-9563-02F17967EBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE32AE9-038A-4535-9563-02F17967EBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE32AE9-038A-4535-9563-02F17967EBB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0DF921F-0C50-4282-A9DE-8CE4806B5C84}
+	EndGlobalSection
+EndGlobal
