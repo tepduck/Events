@@ -15,7 +15,7 @@ namespace Events.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IAuthenticationManager _authManager;
 
-        public AuthenticationController(IMapper mapper, UserManager<User> userManager, 
+        public AuthenticationController(IMapper mapper, UserManager<User> userManager,
             IAuthenticationManager authManager)
         {
             _mapper = mapper;
@@ -32,7 +32,7 @@ namespace Events.Controllers
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto
             userForRegistration)
         {
-            if(userForRegistration == null)
+            if (userForRegistration == null)
             {
                 return BadRequest("UserForRegistrationDto object is null");
             }
@@ -47,7 +47,7 @@ namespace Events.Controllers
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
             if (!result.Succeeded)
             {
-                foreach(var error in result.Errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.TryAddModelError(error.Code, error.Description);
                 }
@@ -76,7 +76,7 @@ namespace Events.Controllers
                 return UnprocessableEntity(ModelState);
             }
 
-            if(!await _authManager.ValidateUser(user))
+            if (!await _authManager.ValidateUser(user))
             {
                 return Unauthorized();
             }
