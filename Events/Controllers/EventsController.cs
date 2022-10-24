@@ -12,6 +12,7 @@ namespace Events.Controllers
 {
     [Route("api/events")]
     [ApiController]
+    [Authorize]
     [ApiExplorerSettings(GroupName = "v1")]
     public class EventsController : ControllerBase
     {
@@ -24,35 +25,49 @@ namespace Events.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet(Name = "GetEvents"), Authorize]
+        /// <summary>
+        ///     Get all events
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
         public async Task<IActionResult> GetEvents()
         {
-            var events = await _repositoryManager.Event.GetEventsAsync(trackChanges: false);
+            var events = await _repositoryManager.Event.GetEventsAsync();
 
             var eventsDto = _mapper.Map<IEnumerable<EventDto>>(events);
 
             return Ok(eventsDto);
         }
 
+
+        /// <summary>
+        ///  Get event by guid
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}", Name = "EventById")]
         public async Task<IActionResult> GetEvent(Guid id)
         {
-            var customEvent = await _repositoryManager.Event.GetEventAsync(id, trackChanges: false);
-            if(customEvent == null)
+            var customEvent = await _repositoryManager.Event.GetEventAsync(id);
+            if (customEvent == null)
             {
                 return NotFound();
             }
-            else
-            {
-                var eventDto = _mapper.Map<EventDto>(customEvent);
-                return Ok(eventDto);
-            }
+
+            var eventDto = _mapper.Map<EventDto>(customEvent);
+
+            return Ok(eventDto);
         }
 
+        /// <summary>
+        /// Create event
+        /// </summary>
+        /// <param name="customEvent"></param>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateEvent([FromBody]EventCreationDto customEvent)
+        public async Task<IActionResult> CreateEvent([FromBody] EventCreationDto customEvent)
         {
-            if(customEvent == null)
+            if (customEvent == null)
             {
                 return BadRequest("EventForCreationDto object is null");
             }
@@ -72,9 +87,15 @@ namespace Events.Controllers
             return CreatedAtRoute("EventById", new { id = eventToReturn.Id }, eventToReturn);
         }
 
+        /// <summary>
+        /// Update event
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="customEvent"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEvent(Guid id, 
-            [FromBody]EventUpdatingDto customEvent)
+        public async Task<IActionResult> UpdateEvent(Guid id,
+            [FromBody] EventUpdatingDto customEvent)
         {
             if (customEvent == null)
             {
@@ -86,8 +107,8 @@ namespace Events.Controllers
                 return UnprocessableEntity(ModelState);
             }
 
-            var eventEntity = await _repositoryManager.Event.GetEventAsync(id, trackChanges: true);
-            if(eventEntity == null)
+            var eventEntity = await _repositoryManager.Event.GetEventAsync(id, true);
+            if (eventEntity == null)
             {
                 return NotFound();
             }
@@ -98,11 +119,16 @@ namespace Events.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// deelete event by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(Guid id)
         {
-            var customEvent = await _repositoryManager.Event.GetEventAsync(id, trackChanges: false);
-            if(customEvent == null)
+            var customEvent = await _repositoryManager.Event.GetEventAsync(id);
+            if (customEvent == null)
             {
                 return NotFound();
             }

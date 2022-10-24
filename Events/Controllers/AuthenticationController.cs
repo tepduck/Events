@@ -23,6 +23,11 @@ namespace Events.Controllers
             _authManager = authManager;
         }
 
+        /// <summary>
+        /// register
+        /// </summary>
+        /// <param name="userForRegistration"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto
             userForRegistration)
@@ -53,6 +58,11 @@ namespace Events.Controllers
             return StatusCode(201);
         }
 
+        /// <summary>
+        /// authentication
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost("login")]
         public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
         {

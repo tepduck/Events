@@ -1,8 +1,4 @@
 ﻿using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository
@@ -17,12 +13,14 @@ namespace Repository
             _repositoryContext = repositoryContext;
         }
 
-        public IEventRepository Event 
+        public IEventRepository Event
         {
-            get 
+            get
             {
                 if (_eventRepository == null)
+                {
                     _eventRepository = new EventRepository(_repositoryContext);
+                }
 
                 return _eventRepository;
             }

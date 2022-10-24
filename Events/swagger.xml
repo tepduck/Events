@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Events</name>
+    </assembly>
+    <members>
+        <member name="M:Events.Controllers.AuthenticationController.RegisterUser(Entities.DataTransferObjects.UserForRegistrationDto)">
+            <summary>
+            register
+            </summary>
+            <param name="userForRegistration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Events.Controllers.AuthenticationController.Authenticate(Entities.DataTransferObjects.UserForAuthenticationDto)">
+            <summary>
+            authentication
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Events.Controllers.EventsController.GetEvents">
+            <summary>
+                Get all events
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Events.Controllers.EventsController.GetEvent(System.Guid)">
+            <summary>
+             Get event by guid
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Events.Controllers.EventsController.CreateEvent(Entities.DataTransferObjects.EventCreationDto)">
+            <summary>
+            Create event
+            </summary>
+            <param name="customEvent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Events.Controllers.EventsController.UpdateEvent(System.Guid,Entities.DataTransferObjects.EventUpdatingDto)">
+            <summary>
+            Update event
+            </summary>
+            <param name="id"></param>
+            <param name="customEvent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Events.Controllers.EventsController.DeleteEvent(System.Guid)">
+            <summary>
+            deelete event by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
